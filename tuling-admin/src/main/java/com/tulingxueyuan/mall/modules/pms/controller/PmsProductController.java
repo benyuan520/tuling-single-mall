@@ -24,19 +24,22 @@ import java.util.List;
  * @author XuShu
  * @since 2021-02-26
  */
+
 @RestController
 @RequestMapping("/pms/pmsProduct")
-public class PmsProductController {
 
-    PmsProductService pmsPS;
+public class PmsProductController {
+    @Autowired
+    PmsProductService ProductService;
+
 
     @ApiOperation("商品列表")
-    @RequestMapping(value = "lista",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public CommonResult<List<PmsProduct>> list(){
-        List<PmsProduct> list = pmsPS.list();
+        List<PmsProduct> list = ProductService.list();
     return CommonResult.success(list);
     }
-//
+
 //    @Autowired
 //    PmsProductService productService;
 //
@@ -62,7 +65,7 @@ public class PmsProductController {
 //       Page page= productService.list(condition);
 //        return CommonResult.success(CommonPage.restPage(page));
 //    }
-//
+
 //    /**
 //     *  url:'/product/update/deleteStatus',
 //     *     method:'post',

@@ -69,8 +69,9 @@ public class UmsAdminController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult login(@Validated @RequestBody UmsAdminLoginParam umsAdminLoginParam) {
+        log.info("恭喜密码正确1");
          UmsAdmin login = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
-        log.debug("运行了呀1");
+        log.info("恭喜密码正确");
          if (login == null) {
 //            if (false) {
             return CommonResult.validateFailed("用户名或密码错误");
